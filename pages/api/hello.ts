@@ -2,10 +2,15 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
 
-export default async function handler(req: NextApiRequest, res: any) {
+export default async function handler(
+  req: NextApiRequest,
+  res: any,
+  longitude: string,
+  latitude: string
+) {
   var config = {
     method: "get",
-    url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=43.2631%2C-79.9212&radius=10&type=library&keyword=library&key=${process.env.MAPS_API_KEY}`,
+    url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${longitude}%2C${latitude}&radius=10&type=library&keyword=library&key=${process.env.MAPS_API_KEY}`,
     headers: {},
   };
 
