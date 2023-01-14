@@ -110,6 +110,7 @@ h1{
   flex-direction: column;
   align-items: center;
   gap: 3rem;
+  overflow: scroll;
   overflow: hidden;
 }
 
@@ -120,6 +121,5 @@ h1{
 }
 
 .legend{
-  display: flex;
-  gap: 5rem;
+  margin-top: 1rem;
 }
