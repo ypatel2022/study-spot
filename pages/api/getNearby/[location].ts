@@ -1,11 +1,19 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 import axios from 'axios'
+import { connectFirestoreEmulator } from 'firebase/firestore'
 
 export default async function handler(req: NextApiRequest, res: any) {
-  var config = {
+  let location = req.query.location
+
+  // split the location into longitude and latitude from req.query
+
+  const longitude = location?.split(',')[0]
+  const latitude = location?.split(',')[1]
+
+  let config = {
     method: 'get',
-    url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=43.265276%2C-79.91794&radius=20000&type=library&keyword=library&key=${process.env.MAPS_API_KEY}`,
+    url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${longitude}%2C${latitude}&radius=1000&type=library&keyword=library&key=${process.env.MAPS_API_KEY}`,
     headers: {},
   }
 
