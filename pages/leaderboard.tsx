@@ -1,11 +1,14 @@
 import React from "react";
+import Link from "next/link";
 
 export default function leaderboard() {
   return (
     <div>
       {" "}
       <header>
-        <h1 className="brand">StudySpot</h1>
+        <h1 className="brand">
+          <Link href="/">StudySpot</Link>
+        </h1>
         <div className="navlinks">
           <a href="">Search</a>
           <a href="">Leaderboard</a>
