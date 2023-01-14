@@ -1,11 +1,12 @@
 export default function Home() {
   return (
     <>
-      <header>
+      <header className="w-full">
         <h1 className="brand">StudySpot</h1>
-        <div className="navlinks">
+        <div className="navlinks w-full">
           <a href="">Search</a>
           <a href="">Leaderboard</a>
+          <Login />
         </div>
       </header>
       <img src="/img/hero-background.png" alt="" className="background" />
