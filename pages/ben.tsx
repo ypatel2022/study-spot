@@ -30,7 +30,7 @@ export default function Ben() {
   }, [])
 
   return (
-    <div>
+    <div className="text-white">
       <h4>Using geolocation JavaScript API in React</h4>
       <p>
         Your location is {latitude}, {longitude}
