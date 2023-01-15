@@ -8,19 +8,32 @@ function minting() {
     setInput(e.target.value);
   };
   const mintNFT = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     alert("submitted");
 
-    const form = new FormData();
-    form.append("allowPlatformToOperateToken", "true");
-    form.append("chain", "goerli");
-    form.append("name", "StudySpotBronze");
-    form.append("description", "1 hour of studying, good job!");
-    form.append(
-      "recipientAddress",
-      "0xe13145628d322285fADeEAaD55D2db8456F90ccC"
-    );
-    form.append("filepath", "/img/hero-background.png");
+    // const form = new FormData();
+    // form.append("allowPlatformToOperateToken", "true");
+    // form.append("chain", "goerli");
+    // form.append("name", "StudySpotBronze");
+    // form.append("description", "1 hour of studying, good job!");
+    // form.append(
+    //   "recipientAddress",
+    //   "0xe13145628d322285fADeEAaD55D2db8456F90ccC"
+    // );
+    // form.append(
+    //   "filepath",
+    //   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdj+L+U4T8ABu8CpCYJ1DQAAAAASUVORK5CYII="
+    // );
+
+    const testObject = {
+      "allowPlatformToOperateToken": "true",
+      "chain": "goerli",
+      "name": "StudySpotBronze",
+      "description": "3 hours of studying, good job!",
+      "recipientAddress": "0xe13145628d322285fADeEAaD55D2db8456F90ccC",
+      "filepath":
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdj+L+U4T8ABu8CpCYJ1DQAAAAASUVORK5CYII=",
+    };
 
     const options = {
       method: "POST",
@@ -31,7 +44,8 @@ function minting() {
           "multipart/form-data; boundary=---011000010111000001101001",
         "X-API-Key": "sk_live_f1a35199-d5b7-4277-be64-a838a210ceb2",
       },
-      data: "[form]",
+      // data: "[form]",
+      data: testObject,
     };
 
     axios

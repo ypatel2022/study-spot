@@ -17,17 +17,21 @@ export default function leaderboard() {
       // store in an array of objects including uid and total study time
       // data is in form [{uid: "uid", study_time: 123}, {uid: "uid", study_time: 123}]
       // sort array by study time
-
+      //@ts-ignore
       let users = []
       let userExists = false
+      //@ts-ignore
       for (let i = 0; i < data.length; i++) {
         for (let j = 0; j < users.length; j++) {
+          //@ts-ignore
           if (data[i].uid === users[j].uid) {
+            //@ts-ignore
             users[j].study_time += data[i].study_time
             userExists = true
           }
         }
         if (!userExists) {
+          //@ts-ignore
           users.push({ uid: data[i].uid, study_time: data[i].study_time })
         }
         userExists = false
@@ -39,11 +43,14 @@ export default function leaderboard() {
 
       // create a new object and replace all the uid's with the user's name
       // then set the state of users to the new object
+      //@ts-ignore
       let newUsers = []
       for (let i = 0; i < users.length; i++) {
         getName(users[i].uid).then((name) => {
+          //@ts-ignore
           newUsers.push({ uid: name, studyTime: users[i].study_time })
           if (i === users.length - 1) {
+            //@ts-ignore
             setUsers(newUsers)
             setLoading(false)
           }
@@ -93,6 +100,7 @@ export default function leaderboard() {
                 {/* map through logs */}
 
                 {users &&
+                  //@ts-ignore
                   users.map((user) => {
                     return (
                       <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
