@@ -105,6 +105,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   gap: 3rem;
+  overflow: scroll;
   overflow: hidden;
 }
 
@@ -114,9 +115,8 @@ h1 {
   font-weight: bold;
 }
 
-.legend {
-  display: flex;
-  gap: 5rem;
+.legend{
+  margin-top: 1rem;
 }
 
 /* Minting */
