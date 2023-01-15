@@ -136,8 +136,6 @@ h1 {
   position: relative;
   height: 72vh;
   width: 70vw;
-  background: white;
-  opacity: 40%;
   border-radius: 2rem;
   padding: 1rem 4rem;
   display: flex;
