@@ -14,6 +14,9 @@ import {
   collection,
   where,
   addDoc,
+  Timestamp,
+  GeoPoint,
+  updateDoc,
 } from 'firebase/firestore'
 
 // Import the functions you need from the SDKs you need
@@ -62,9 +65,48 @@ const signInWithGoogle = async () => {
   }
 }
 
+const uploadLog = async (data: any) => {
+  try {
+    await addDoc(collection(db, 'logs'), data)
+  } catch (err: any) {
+    console.error(err)
+    alert(err.message)
+  }
+}
+
+const getLogs = async (userId: string) => {
+  try {
+    const q = query(collection(db, 'logs'), where('uid', '==', userId))
+    const docs = await getDocs(q)
+    return docs.docs.map((doc) => doc.data())
+  } catch (err: any) {
+    console.error(err)
+    alert(err.message)
+  }
+}
+
+// const getUserData = async (userId: string) => {
+//   try {
+//     const q = query(collection(db, 'logs'), where('uid', '==', userId))
+//     const docs = await getDocs(q)
+
+//     if (docs.docs.length === 0) {
+//       await addUser(userId)
+
+//       getUserData(userId)
+//     }
+
+//     return docs.docs[0].data()
+
+//   } catch (err: any) {
+//     console.error(err)
+//     alert(err.message)
+//   }
+// }
+
 // const logInWithEmailAndPassword = async (email: string, password: string) => {
 //   try {
-//     await signInWithEmailAndPassword(auth, email, password)
+// await signInWithEmailAndPassword(auth, email, password)
 //   } catch (err: any) {
 //     console.error(err)
 //     alert(err.message)
@@ -95,4 +137,4 @@ const logout = () => {
   signOut(auth)
 }
 
-export { auth, db, signInWithGoogle, logout }
+export { auth, db, signInWithGoogle, logout, uploadLog, getLogs }
