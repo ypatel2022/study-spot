@@ -73,7 +73,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem;
   overflow: hidden;
 }
 
@@ -88,7 +88,8 @@ h1 {
   text-align: center;
 }
 
-.studyscore {}
+.studyscore {
+}
 
 /* Leaderboard */
 
@@ -184,8 +185,6 @@ h1 {
   outline: none;
 }
 
-
-
 /* Landing Page */
 
 .landingbackground {
@@ -212,7 +211,6 @@ h1 {
   color: white;
 }
 
-
 .Lnavlinks {
   margin-left: auto;
   margin-right: 2rem;
@@ -223,7 +221,6 @@ h1 {
   position: relative;
   font-size: 1.5rem;
 }
-
 
 .landingintro {
   height: 100vh;
@@ -250,7 +247,6 @@ h1 {
   color: white;
   font-size: 1rem;
 }
-
 
 .landingrightintro {
   width: 40vw;
@@ -289,7 +285,6 @@ h1 {
   position: relative;
 }
 
-
 .infopage {
   background-color: white;
   height: 120vh;
@@ -309,4 +304,3 @@ h1 {
   flex-direction: column;
   gap: 8rem;
 }
-
