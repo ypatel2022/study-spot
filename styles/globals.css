@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: black;
+  background: -webkit-linear-gradient(left, #8c78f0, #6d28d9);
   scroll-behavior: smooth;
 }
 
