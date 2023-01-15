@@ -14,16 +14,20 @@ import {
 } from 'firebase/firestore'
 
 export default function Home() {
-  const [latitude, setLatitude] = useState(0)
-  const [longitude, setLongitude] = useState(0)
   const [time, setTime] = useState(0)
-  const [startTime, setStartTime] = useState(1673731254882)
-  const [currentTime, setCurrentTime] = useState(0)
-  const [location, setLocation] = useState('')
-  const [isNearLibrary, setIsNearLibrary] = useState(false)
-
+  const [startTime, setStartTime] = useState(Date.now())
+  const [currentTime, setCurrentTime] = useState(Date.now())
+  const [isNearLibrary, setIsNearLibrary] = useState(null)
+  const [leftLibrary, setLeftLibrary] = useState(null)
   // auth stuff
   const [user, loading, error] = useAuthState(auth)
+
+  useEffect(() => {
+    setInterval(() => {
+      // console.log('This will run every second!')
+      setCurrentTime(Date.now())
+    }, 1000)
+  }, [])
 
   useEffect(() => {
     if (loading) {
@@ -31,26 +35,39 @@ export default function Home() {
       return
     }
 
-    setInterval(() => {
-      // console.log('This will run every second!')
-      setCurrentTime(Date.now())
-    }, 1000)
-
     // locate if user is in library
-    setInterval(async () => {
-      await navigator.geolocation.getCurrentPosition(async (position) => {
+
+    let _isNearLibrary: null | boolean = null
+    let _leftLibrary: null | boolean = null
+    setInterval(() => {
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        console.log(
+          `/api/getNearby/${position.coords.latitude},${position.coords.longitude}`
+        )
         await fetch(
           `/api/getNearby/${position.coords.latitude},${position.coords.longitude}`
         )
           .then((res) => res.json())
-          .then((data) => {
-            if (data.results.length > 0 && isNearLibrary === false) {
-              setIsNearLibrary(true)
+          .then(async (data) => {
+            console.log(data.results.length > 0 && _isNearLibrary === null)
+            console.log(_isNearLibrary)
+            console.log(_leftLibrary)
+            console.log(data.results.length)
+            console.log('--------------------------------')
 
-              console.log('you are near a library')
-            } else {
+            if (data.results.length > 0 && _isNearLibrary === null) {
+              _isNearLibrary = true
+              setStartTime(Date.now())
+            }
+
+            if (data.results.length === 0 && _isNearLibrary === true) {
+              _leftLibrary = true
+            }
+
+            if (_leftLibrary === true) {
               // no library near you. measn you left
               // update the exit time
+              console.log('testing')
               try {
                 if (user) {
                   const stuff = {
@@ -59,16 +76,21 @@ export default function Home() {
                     study_time: Math.round((currentTime - startTime) / 1000),
                   }
 
-                  uploadLog(stuff)
+                  await uploadLog(stuff)
+                } else {
+                  alert('You must be logged in to log data')
                 }
               } catch (err) {
                 console.error(err)
                 alert('An error occurred while logging data')
               }
+
+              _isNearLibrary = null
+              _leftLibrary = null
             }
           })
       })
-    }, 1000)
+    }, 10000)
   }, [user, loading])
 
   return (
@@ -98,8 +120,38 @@ export default function Home() {
           <h2 className='location'>H.G. Thode Library</h2>
 
           <button
-            onClick={() => {
-              setIsNearLibrary(false)
+            onClick={async () => {
+              navigator.geolocation.getCurrentPosition(async (position) => {
+                console.log(
+                  `/api/getNearby/${position.coords.latitude},${position.coords.longitude}`
+                )
+                await fetch(
+                  `/api/getNearby/${position.coords.latitude},${position.coords.longitude}`
+                )
+                  .then((res) => res.json())
+                  .then(async (data) => {
+                    try {
+                      if (user) {
+                        const stuff = {
+                          uid: user.uid,
+                          location: data.results[0].name,
+                          study_time: Math.round(
+                            (currentTime - startTime) / 1000
+                          ),
+                        }
+
+                        await uploadLog(stuff)
+                      } else {
+                        alert('You must be logged in to log data')
+                      }
+                    } catch (err) {
+                      console.error(err)
+                      alert('An error occurred while logging data')
+                    }
+                  })
+              })
+
+              setStartTime(Date.now())
             }}
             type='button'
             className='focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900'
