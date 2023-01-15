@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import Login from './Login'
+import Link from 'next/link'
 
 export default function Navbar(props: any) {
   const [colorChange, setColorchange] = useState(false)
 
   const changeNavbarColor = () => {
-    if (window.scrollY >= 200) {
+    if (window.scrollY >= 10) {
       setColorchange(true)
     } else {
       setColorchange(false)
@@ -18,11 +19,12 @@ export default function Navbar(props: any) {
   return (
     <div className={colorChange ? 'landingnavbartoggle' : 'landingnavbar'}>
       <h1 className={colorChange ? 'landingbrandtoggle' : 'landingbrand'}>
-        <a href='/'>StudySpot</a>
+        <Link href='/'>StudySpot</Link>
       </h1>
       <div className='Lnavlinks'>
-        {props.loggedOut && <a href='/landing#about'>Features</a>}
-        <a href='/leaderboard'>Leaderboard</a>
+        {props.loggedOut && <Link href='/landing#about'>Features</Link>}
+        <Link href='/leaderboard'>Leaderboard</Link>
+        <Link href='/minting'>Minting</Link>
         <Login />
       </div>
     </div>
