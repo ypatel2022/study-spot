@@ -183,3 +183,18 @@ h1 {
 .addressinput:focus {
   outline: none;
 }
+
+
+
+
+
+/* Landing Page */
+
+.Lnavlinks{
+  width: 80vw;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 3rem;
+  position: absolute;
+}
