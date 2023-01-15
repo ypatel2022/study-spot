@@ -8,7 +8,9 @@ export default async function handler(req: NextApiRequest, res: any) {
 
   // split the location into longitude and latitude from req.query
 
+  //@ts-ignore
   const longitude = location?.split(',')[0]
+  //@ts-ignore
   const latitude = location?.split(',')[1]
 
   let config = {
