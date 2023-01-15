@@ -1,17 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: black;
-  scroll-behavior: smooth
+  scroll-behavior: smooth;
 }
 
 .brand {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
@@ -201,15 +201,36 @@ h1 {
   width: 100vw;
   position: fixed;
   color: white;
+  z-index: 50;
+}
+
+.landingnavbartoggle {
+  padding: 1.5rem 3rem;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  position: fixed;
+  color: black;
+  background-color: white;
+  z-index: 50;
 }
 
 .landingbrand {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
   line-height: 49px;
   color: white;
+}
+
+.landingbrandtoggle {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 49px;
+  color: black;
 }
 
 .Lnavlinks {
@@ -288,7 +309,7 @@ h1 {
 
 .infopage {
   background-color: white;
-  height:   50rem;
+  height: 50rem;
   padding: 0 13vw;
 }
 
@@ -298,8 +319,8 @@ h1 {
   margin-bottom: 2rem;
 }
 
-.infopage {}
-
+.infopage {
+}
 
 .howitworks {
   display: flex;
@@ -307,14 +328,13 @@ h1 {
   gap: 6rem;
 }
 
-
-.book{
+.book {
   width: 30vw;
   height: auto;
-  position:relative ;
+  position: relative;
   z-index: 2;
 }
 
-footer{
-  background-color: #5600E2;
+footer {
+  background-color: #5600e2;
 }
