@@ -21,7 +21,7 @@ body {
 
 img {
   position: fixed;
-  z-index: 0;
+  z-index: -1;
 }
 
 header {
@@ -88,8 +88,7 @@ h1 {
   text-align: center;
 }
 
-.studyscore {
-}
+.studyscore {}
 
 /* Leaderboard */
 
@@ -115,7 +114,7 @@ h1 {
   font-weight: bold;
 }
 
-.legend{
+.legend {
   margin-top: 1rem;
 }
 
@@ -180,21 +179,104 @@ h1 {
   text-align: center;
   width: 30rem;
 }
+
 .addressinput:focus {
   outline: none;
 }
 
 
 
-
-
 /* Landing Page */
 
-.Lnavlinks{
-  width: 80vw;
+.landingnavbar {
+  padding: 1.5rem 3rem;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  position: fixed;
+  color: white;
+}
+
+.landingbrand{
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 49px;
+  color: white;
+}
+
+
+.Lnavlinks {
+  margin-left: auto;
+  margin-right: 2rem;
   display: flex;
   justify-content: right;
   align-items: center;
   gap: 3rem;
-  position: absolute;
+  position: relative;
+  font-size: 1.5rem;
+}
+
+
+.landingintro {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 13vw;
+  justify-content: space-between;
+  gap: 10vw;
+}
+
+.introinfo {
+  width: 40vw;
+}
+
+.landingtitle {
+  font-size: 8vh;
+  color: white;
+  line-height: 4.5rem;
+  margin-bottom: 0.5em;
+}
+
+.landingtext {
+  color: white;
+  font-size: 1rem;
+}
+
+
+.landingrightintro {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.mapgraphic {
+  width: 30vw;
+  height: auto;
+  position: relative;
+}
+
+.signup-button {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+  background: #742fe2;
+  padding: 10px 8px;
+  text-decoration: none;
+  width: 20vw;
+  margin: auto;
+  position: relative;
+  margin-top: 2em;
+}
+
+.infopage{
+  background-color: white;
+  height: 200vh;
 }
