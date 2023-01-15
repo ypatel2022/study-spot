@@ -1,8 +1,8 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react'
+import Link from 'next/link'
 
 function minting() {
-  const mintNFT = () => {};
+  const mintNFT = () => {}
 
   return (
     <>
@@ -25,16 +25,19 @@ function minting() {
             progress to an NFT! Simply enter the information and click the
             button to mint!
           </h2>
-          <input
-            type="text"
-            className="addressinput"
-            placeholder="Enter Wallet Address"
-          />
+          <form action="" method="POST" encType="multipart/form-data">
+            <input
+              type="text"
+              className="addressinput"
+              placeholder="Enter Wallet Address"
+              name="recipientAddress"
+            />
+          </form>
           <button className="mint-button">Mint NFT</button>
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default minting;
+export default minting
