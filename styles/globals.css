@@ -280,7 +280,8 @@ h1 {
   margin: auto;
   position: relative;
   margin-top: 2em;
-} 
+  opacity: 90%;
+}
 
 .wave {
   width: 100vw;
@@ -291,7 +292,7 @@ h1 {
 
 .infopage {
   background-color: white;
-  height: 200vh;
+  height: 120vh;
   padding: 0 13vw;
 }
 
@@ -301,17 +302,11 @@ h1 {
   margin-bottom: 2rem;
 }
 
-.infopage{
+.infopage {}
 
-}
-
-.howitworks{
+.howitworks {
   display: flex;
-  flex-direction: column; 
-  gap: 3em;
-}
-
-.block{
-
+  flex-direction: column;
+  gap: 8rem;
 }
 
