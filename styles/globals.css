@@ -57,6 +57,7 @@ h1 {
 .content {
   height: 100vh;
   padding-top: 8em;
+  text-align: center;
 }
 
 .card {
@@ -118,6 +119,17 @@ h1 {
   gap: 5rem;
 }
 
+/* Minting */
+
+.minthero {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.mintcontent {
+  padding: 3em;
+}
+
 .card-minting {
   margin: auto;
   position: relative;
@@ -126,10 +138,10 @@ h1 {
   background: white;
   opacity: 40%;
   border-radius: 2rem;
-  padding: 1.5rem 4rem;
+  padding: 1rem 4rem;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   gap: 2rem;
   overflow: hidden;
@@ -151,4 +163,23 @@ h1 {
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   position: relative;
+}
+
+.addressinput {
+  padding: 10px;
+  font-size: 16px;
+  border-width: 1px;
+  border-color: #cccccc;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: solid;
+  border-radius: 20px;
+  box-shadow: 0px 0px 1px rgba(66, 66, 66, 0.78);
+  text-shadow: 0px 0px 5px rgba(66, 66, 66, 0);
+  opacity: 80%;
+  text-align: center;
+  width: 30rem;
+}
+.addressinput:focus {
+  outline: none;
 }

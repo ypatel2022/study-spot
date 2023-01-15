@@ -19,12 +19,17 @@ function minting() {
 
       <div className="content">
         <div className="card-minting">
-          <h1 className="hero">Mint an NFT with your study progress!</h1>
+          <h1 className="minthero">Mint an NFT with your study progress!</h1>
           <h2 className="minting-description">
             Thanks to the help of Verbwire API, you can now mint your studying
             progress to an NFT! Simply enter the information and click the
             button to mint!
           </h2>
+          <input
+            type="text"
+            className="addressinput"
+            placeholder="Enter Wallet Address"
+          />
           <button className="mint-button">Mint NFT</button>
         </div>
       </div>
