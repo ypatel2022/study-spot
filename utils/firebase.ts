@@ -74,6 +74,17 @@ const uploadLog = async (data: any) => {
   }
 }
 
+const getLogs = async (userId: string) => {
+  try {
+    const q = query(collection(db, 'logs'), where('uid', '==', userId))
+    const docs = await getDocs(q)
+    return docs.docs.map((doc) => doc.data())
+  } catch (err: any) {
+    console.error(err)
+    alert(err.message)
+  }
+}
+
 // const getUserData = async (userId: string) => {
 //   try {
 //     const q = query(collection(db, 'logs'), where('uid', '==', userId))
@@ -126,4 +137,4 @@ const logout = () => {
   signOut(auth)
 }
 
-export { auth, db, signInWithGoogle, logout, uploadLog }
+export { auth, db, signInWithGoogle, logout, uploadLog, getLogs }
