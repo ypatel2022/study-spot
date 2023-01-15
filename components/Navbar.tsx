@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Login from './Login'
 
-export default function Navbar(props) {
+export default function Navbar(props: any) {
   const [colorChange, setColorchange] = useState(false)
 
   const changeNavbarColor = () => {
