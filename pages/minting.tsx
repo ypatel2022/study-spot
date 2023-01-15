@@ -1,37 +1,48 @@
-import React from 'react'
-import Link from 'next/link'
-import axios from 'axios'
+import Link from "next/link";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 function minting() {
-  const mintNFT = () => {}
-  const form = new FormData()
-  form.append('allowPlatformToOperateToken', 'true')
-  form.append('chain', 'goerli')
-  form.append('name', 'StudySpotBronze')
-  form.append('description', '1 hour of studying, good job!')
-  form.append('recipientAddress', '0x57873816969c06Eb2dF7b56681E4A7502D2D0F69')
+  const [input, setInput] = useState("");
+  const handleChange = (e) => {
+    setInput(e.target.value);
+  };
+  const mintNFT = (e) => {
+    e.preventDefault();
+    alert("submitted");
 
-  const options = {
-    method: 'POST',
-    url: 'https://api.verbwire.com/v1/nft/mint/quickMintFromFile',
-    headers: {
-      accept: 'application/json',
-      'content-type':
-        'multipart/form-data; boundary=---011000010111000001101001',
-      'X-API-Key': 'sk_live_f1a35199-d5b7-4277-be64-a838a210ceb2',
-    },
-    data: '[form]',
-  }
+    const form = new FormData();
+    form.append("allowPlatformToOperateToken", "true");
+    form.append("chain", "goerli");
+    form.append("name", "StudySpotBronze");
+    form.append("description", "1 hour of studying, good job!");
+    form.append(
+      "recipientAddress",
+      "0xe13145628d322285fADeEAaD55D2db8456F90ccC"
+    );
+    form.append("filepath", "/img/hero-background.png");
 
-  axios
-    .request(options)
-    .then(function (response) {
-      console.log(response.data)
-    })
-    .catch(function (error) {
-      console.error(error)
-    })
+    const options = {
+      method: "POST",
+      url: "https://api.verbwire.com/v1/nft/mint/quickMintFromFile",
+      headers: {
+        accept: "application/json",
+        "content-type":
+          "multipart/form-data; boundary=---011000010111000001101001",
+        "X-API-Key": "sk_live_f1a35199-d5b7-4277-be64-a838a210ceb2",
+      },
+      data: "[form]",
+    };
 
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  };
   return (
     <>
       <header className="w-full">
@@ -53,21 +64,28 @@ function minting() {
             progress to an NFT! Simply enter the information and click the
             button to mint!
           </h2>
-          <form action="" method="POST" encType="multipart/form-data">
+          <form
+            action=""
+            method="POST"
+            encType="multipart/form-data"
+            onSubmit={mintNFT}
+          >
             <input
+              value={input}
               type="text"
               className="addressinput"
               placeholder="Enter Wallet Address"
               name="recipientAddress"
+              onChange={handleChange}
             />
+            <button type="submit" className="mint-button">
+              Mint NFT
+            </button>
           </form>
-          <button type="submit" className="mint-button">
-            Mint NFT
-          </button>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default minting
+export default minting;
