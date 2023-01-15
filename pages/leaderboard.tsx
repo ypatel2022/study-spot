@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { auth, getAllLogs, getName } from '../utils/firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import Navbar from '../components/Navbar'
+import Navbar from '@/components/Navbar'
 
 export default function leaderboard() {
   const [user, loading, error] = useAuthState(auth)
@@ -66,15 +66,13 @@ export default function leaderboard() {
 
   return (
     <div>
+      <Navbar />
       <img
         src='/img/hero-background.png'
         alt=''
         className='background'
         draggable='false'
       />
-
-      <Navbar loggedOut={true} />
-
       <div className='content'>
         <div className='leaderboardcard'>
           <h1 className='leaderboardtitle'>Leaderboard</h1>
@@ -102,7 +100,7 @@ export default function leaderboard() {
                       <tr className='bg-white border-b'>
                         <th
                           scope='row'
-                          className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap '
+                          className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap'
                         >
                           {user.uid}
                         </th>
