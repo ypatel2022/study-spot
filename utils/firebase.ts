@@ -85,6 +85,28 @@ const getLogs = async (userId: string) => {
   }
 }
 
+const getAllLogs = async () => {
+  try {
+    const q = query(collection(db, 'logs'))
+    const docs = await getDocs(q)
+    return docs.docs.map((doc) => doc.data())
+  } catch (err: any) {
+    console.error(err)
+    alert(err.message)
+  }
+}
+
+const getName = async (userId: string) => {
+  try {
+    const q = query(collection(db, 'users'), where('uid', '==', userId))
+    const docs = await getDocs(q)
+    return docs.docs[0].data().name
+  } catch (err: any) {
+    console.error(err)
+    alert(err.message)
+  }
+}
+
 // const getUserData = async (userId: string) => {
 //   try {
 //     const q = query(collection(db, 'logs'), where('uid', '==', userId))
@@ -137,4 +159,13 @@ const logout = () => {
   signOut(auth)
 }
 
-export { auth, db, signInWithGoogle, logout, uploadLog, getLogs }
+export {
+  auth,
+  db,
+  signInWithGoogle,
+  logout,
+  uploadLog,
+  getLogs,
+  getAllLogs,
+  getName,
+}
