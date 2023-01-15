@@ -188,6 +188,12 @@ h1 {
 
 /* Landing Page */
 
+.landingbackground {
+  width: 100%;
+  height: 110vh;
+  object-fit: cover;
+}
+
 .landingnavbar {
   padding: 1.5rem 3rem;
   display: flex;
@@ -197,7 +203,7 @@ h1 {
   color: white;
 }
 
-.landingbrand{
+.landingbrand {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 700;
@@ -274,9 +280,38 @@ h1 {
   margin: auto;
   position: relative;
   margin-top: 2em;
+} 
+
+.wave {
+  width: 100vw;
+  height: auto;
+  position: relative;
+}
+
+
+.infopage {
+  background-color: white;
+  height: 200vh;
+  padding: 0 13vw;
+}
+
+.infotitle {
+  font-weight: bold;
+  color: #4c069b;
+  margin-bottom: 2rem;
 }
 
 .infopage{
-  background-color: white;
-  height: 200vh;
+
 }
+
+.howitworks{
+  display: flex;
+  flex-direction: column; 
+  gap: 3em;
+}
+
+.block{
+
+}
+
