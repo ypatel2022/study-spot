@@ -9,133 +9,20 @@ import Head from 'next/head'
 function minting({ nfts }) {
   console.log(nfts.nfts)
 
-  // const [input, setInput] = useState('')
-  // const [user, loading, error] = useAuthState(auth)
-
-  // const handleChange = (e) => {
-  //   setInput(e.target.value)
-  // }
-  // const mintNFT = (e) => {
-  //   // e.preventDefault();
-  //   alert('submitted')
-
-  //   // const form = new FormData();
-  //   // form.append("allowPlatformToOperateToken", "true");
-  //   // form.append("chain", "goerli");
-  //   // form.append("name", "StudySpotBronze");
-  //   // form.append("description", "1 hour of studying, good job!");
-  //   // form.append(
-  //   //   "recipientAddress",
-  //   //   "0xe13145628d322285fADeEAaD55D2db8456F90ccC"
-  //   // );
-  //   // form.append(
-  //   //   "filepath",
-  //   //   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdj+L+U4T8ABu8CpCYJ1DQAAAAASUVORK5CYII="
-  //   // );
-
-  //   const testObject = {
-  //     allowPlatformToOperateToken: 'true',
-  //     chain: 'goerli',
-  //     name: 'StudySpotBronze',
-  //     description: '3 hours of studying, good job!',
-  //     recipientAddress: '0xe13145628d322285fADeEAaD55D2db8456F90ccC',
-  //     filepath:
-  //       'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdj+L+U4T8ABu8CpCYJ1DQAAAAASUVORK5CYII=',
-  //   }
-
-  //   const options = {
-  //     method: 'POST',
-  //     url: 'https://api.verbwire.com/v1/nft/mint/quickMintFromFile',
-  //     headers: {
-  //       accept: 'application/json',
-  //       'content-type':
-  //         'multipart/form-data; boundary=---011000010111000001101001',
-  //       'X-API-Key': 'sk_live_f1a35199-d5b7-4277-be64-a838a210ceb2',
-  //     },
-  //     // data: "[form]",
-  //     data: testObject,
-  //   }
-
-  //   axios
-  //     .request(options)
-  //     .then(function (response) {
-  //       console.log(response.data)
-  //     })
-  //     .catch(function (error) {
-  //       console.error(error)
-  //     })
-  // }
-
-  // useEffect(() => {
-  //   if (loading) {
-  //     // maybe trigger a loading screen
-  //     return
-  //   }
-
-  //   if (!user) {
-  //     window.location.href = '/landing'
-  //   }
-  // }, [user, loading])
-
-  //
-  // const [nfts, setNfts] = useState(null)
-  // const [isLoading, setLoading] = useState(true)
-
-  // useEffect(() => {
-  //   setLoading(true)
-
-  //   const fetchData = async () => {
-  //     const url =
-  //       'https://api.verbwire.com/v1/nft/data/owned?walletAddress=0xe13145628d322285fADeEAaD55D2db8456F90ccC&chain=goerli'
-  //     const options = {
-  //       method: 'GET',
-  //       headers: {
-  //         accept: 'application/json',
-  //         'X-API-Key': process.env.VERBWIRE_API_KEY,
-  //       },
-  //     }
-
-  //     const data = await fetch(url, options)
-
-  //     return data.json()
-  //   }
-
-  //   // fetch the data and set inside nfts
-  //   fetchData().then((data) => {
-  //     setNfts(data)
-  //     setLoading(false)
-  //   })
-
-  //   // let x = await fetch(url, options)
-  //   //   .then((res) => res.json())
-  //   //   .then((json) => {
-  //   //     _nfts = json
-  //   //   })
-  //   //   .catch((err) => console.error('error:' + err))
-
-  //   // setNfts(_nfts)
-  //   // setLoading(false)
-  //   // console.log(_nfts)
-  // }, [])
-
-  // if (isLoading && !nfts) {
-  //   return <div>Loading...</div>
-  // }
-
   return (
     <div>
       <Navbar loggedOut={false} />
 
-      <div className='content mb-60'>
+      <div className="content mb-60">
         {/* map through nft array */}
         {nfts.nfts && (
-          <div className=''>
+          <div className="">
             {/* @ts-ignore */}
-            <script src='https://unpkg.com/embeddable-nfts/dist/nft-card.min.js'></script>
+            <script src="https://unpkg.com/embeddable-nfts/dist/nft-card.min.js"></script>
             <nft-card
               contractAddress={nfts.nfts[6]?.contractAddress}
               tokenId={nfts.nfts[6]?.tokenID}
-              network='rinkeby'
+              network="rinkeby"
             >
               {/* @ts-ignore */}
             </nft-card>
@@ -143,14 +30,14 @@ function minting({ nfts }) {
             <nft-card
               contractAddress={nfts.nfts[7]?.contractAddress}
               tokenId={nfts.nfts[7]?.tokenID}
-              network='rinkeby'
+              network="rinkeby"
             >
               {/* @ts-ignore */}
             </nft-card>
             <nft-card
               contractAddress={nfts.nfts[8]?.contractAddress}
               tokenId={nfts.nfts[8]?.tokenID}
-              network='rinkeby'
+              network="rinkeby"
             >
               {/* @ts-ignore */}
             </nft-card>
