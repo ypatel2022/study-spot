@@ -1,38 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Study Spot
 
-## Getting Started
+[Devpost](https://devpost.com/software/study-spot-daxwm9 "Devpost")
 
-First, run the development server:
+Created at Deltahacks IX in 24 hours. Winner of "Most Creative Use of Verbwire API."
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Study Spot is a web application that helps students study more effectively. It has a unique study timer feature that is automatically activated when you are inside a library. The timer tracks the amount of time you spend studying and awards you points based on your study sessions. These points can then be used to mint NFTs achievements and awards on the Ethereum blockchain. The app also has a leaderboard feature that ranks users based on their accumulated points, making it a fun and competitive way to motivate students to study more. With Study Spot, students can easily track their progress, set study goals, and compete with their peers all while earning rewards for their hard work.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![image](https://user-images.githubusercontent.com/75918217/212764384-934dd752-2657-4a62-93f8-0f6d16ea10e0.png)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Screenshot 2023-01-15 110829](https://user-images.githubusercontent.com/75918217/212764787-b6ad1634-9e98-4759-b560-be8b6689bd82.png)
